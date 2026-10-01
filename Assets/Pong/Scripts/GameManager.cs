@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
     public void OnPlayerScored()
     {
         SetPlayerScore(playerScore + 1);
+        computerPaddle.GetComponent<ComputerPaddle>().speed *= 1.5f; // Increase computer paddle speed
         NewRound();
     }
 

@@ -788,7 +788,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: fa92d85ebf163c540a14cc442f63eadb, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1095,7 +1095,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceType: 0
-  bounceStrength: 0.05
+  bounceStrength: 0.1
 --- !u!1 &1327430166
 GameObject:
   m_ObjectHideFlags: 0
@@ -1291,9 +1291,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2c66bb1aa5055643be7d334cf5a3063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
-  useDynamicBounce: 0
+  useDynamicBounce: 1
+  maxPositionBounceAngle: 45
+  velocityInfluenceMultiplier: 1.5
+  maxVelocityBounceAngle: 60
+  velocityAverageFrames: 10
+  minimumVelocityThreshold: 0.1
   ball: {fileID: 702247804}
+  speed: 7
+  acceleration: 0.2
 --- !u!61 &1362602730
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1444,7 +1450,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceType: 0
-  bounceStrength: 0.05
+  bounceStrength: 0.1
 --- !u!1 &1535292063
 GameObject:
   m_ObjectHideFlags: 0
@@ -1545,8 +1551,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2c0061ddcd9c8541b8d8b2ebae63267, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
-  useDynamicBounce: 0
+  useDynamicBounce: 1
+  maxPositionBounceAngle: 45
+  velocityInfluenceMultiplier: 1.5
+  maxVelocityBounceAngle: 60
+  velocityAverageFrames: 10
+  minimumVelocityThreshold: 0.1
 --- !u!50 &1535292067
 Rigidbody2D:
   serializedVersion: 4
@@ -1555,7 +1565,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1535292063}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

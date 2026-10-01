@@ -4,22 +4,20 @@ public class PlayerPaddle : Paddle
 {
     private Vector2 direction;
 
-    private void Update()
+    public void SetPosition(float y)
     {
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
-            direction = Vector2.up;
-        } else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) {
-            direction = Vector2.down;
-        } else {
-            direction = Vector2.zero;
-        }
+        transform.position = new Vector2(transform.position.x, y);
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        if (direction.sqrMagnitude != 0) {
-            rb.AddForce(direction * speed);
-        }
+        if (Input.GetMouseButton(0)) {
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            SetPosition(mousePosition.y);
+        } 
+        
     }
+
+ 
 
 }

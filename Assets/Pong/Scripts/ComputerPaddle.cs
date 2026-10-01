@@ -5,8 +5,15 @@ public class ComputerPaddle : Paddle
     [SerializeField]
     private Rigidbody2D ball;
 
+    public float speed = 8f;
+   // public float acceleration = 0.2f;
+
+  
+
     private void FixedUpdate()
     {
+       // speed = speed + ( Time.fixedDeltaTime * acceleration );
+
         // Check if the ball is moving towards the paddle (positive x velocity)
         // or away from the paddle (negative x velocity)
         if (ball.velocity.x > 0f)

@@ -6,6 +6,7 @@ public class Ball : MonoBehaviour
     private Rigidbody2D rb;
 
     public float baseSpeed = 5f;
+
     public float maxSpeed = Mathf.Infinity;
     public float currentSpeed { get; set; }
 
@@ -38,10 +39,14 @@ public class Ball : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // Clamp the velocity of the ball to the max speed
-        Vector2 direction = rb.velocity.normalized;
-        currentSpeed = Mathf.Min(currentSpeed, maxSpeed);
-        rb.velocity = direction * currentSpeed;
+
+        if (maxSpeed != Mathf.Infinity)
+        {
+            // Clamp the velocity of the ball to the max speed
+            Vector2 direction = rb.velocity.normalized;
+            currentSpeed = Mathf.Min(currentSpeed, maxSpeed);
+            rb.velocity = direction * currentSpeed;
+        }
     }
 
 }
