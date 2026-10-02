@@ -1298,8 +1298,7 @@ MonoBehaviour:
   velocityAverageFrames: 10
   minimumVelocityThreshold: 0.1
   ball: {fileID: 702247804}
-  speed: 7
-  acceleration: 0.2
+  speed: 8
 --- !u!61 &1362602730
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1555,7 +1554,7 @@ MonoBehaviour:
   maxPositionBounceAngle: 45
   velocityInfluenceMultiplier: 1.5
   maxVelocityBounceAngle: 60
-  velocityAverageFrames: 10
+  velocityAverageFrames: 20
   minimumVelocityThreshold: 0.1
 --- !u!50 &1535292067
 Rigidbody2D:
@@ -1711,8 +1710,8 @@ Canvas:
   m_GameObject: {fileID: 1635559012}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1

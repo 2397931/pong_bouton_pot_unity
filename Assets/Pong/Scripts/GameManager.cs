@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     private int playerScore;
     private int computerScore;
 
+    private bool isRoundActive = false;
+
     private void Start()
     {
         NewGame();
@@ -23,27 +25,31 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R)) {
             NewGame();
         }
+
+        if ( Input.GetMouseButtonDown(0) && !isRoundActive ) {
+            StartRound();
+        }
     }
 
     public void NewGame()
     {
         SetPlayerScore(0);
         SetComputerScore(0);
-        NewRound();
-    }
-
-    public void NewRound()
-    {
         playerPaddle.ResetPosition();
         computerPaddle.ResetPosition();
-        ball.ResetPosition();
+        StartRound();
+    }
 
-        CancelInvoke();
-        Invoke(nameof(StartRound), 1f);
+
+    private void EndRound()
+    {
+        isRoundActive = false;
+        ball.ResetPosition();
     }
 
     private void StartRound()
     {
+        isRoundActive = true;
         ball.AddStartingForce();
     }
 
@@ -51,13 +57,13 @@ public class GameManager : MonoBehaviour
     {
         SetPlayerScore(playerScore + 1);
         computerPaddle.GetComponent<ComputerPaddle>().speed *= 1.5f; // Increase computer paddle speed
-        NewRound();
+        EndRound();
     }
 
     public void OnComputerScored()
     {
         SetComputerScore(computerScore + 1);
-        NewRound();
+        EndRound();
     }
 
     private void SetPlayerScore(int score)
