@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
         }
 
         if ( Input.GetMouseButtonDown(0) && !isRoundActive ) {
-            StartRound();
+            ThrowBall();
         }
     }
 
@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
         SetComputerScore(0);
         playerPaddle.ResetPosition();
         computerPaddle.ResetPosition();
-        StartRound();
+        ThrowBall();
     }
 
 
@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
         ball.ResetPosition();
     }
 
-    private void StartRound()
+    private void ThrowBall()
     {
         isRoundActive = true;
         ball.AddStartingForce();
