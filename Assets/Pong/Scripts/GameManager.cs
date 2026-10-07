@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
         ball.ResetPosition();
     }
 
-    private void ThrowBall()
+    public void ThrowBall()
     {
         isRoundActive = true;
         ball.AddStartingForce();
